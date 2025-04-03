@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /index.html  # Optional: Avoid duplicate content
+
+Sitemap: https://macrox14.github.io/password-strength-checker/sitemap.xml
