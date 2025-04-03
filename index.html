@@ -41,133 +41,7 @@
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --primary: #6c63ff;
-      --secondary: #4a42e8;
-      --danger: #ff4757;
-      --warning: #ffa502;
-      --success: #2ed573;
-      --dark: #2f3542;
-      --light: #f1f2f6;
-    }
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Poppins', sans-serif;
-    }
-    body {
-      background: #f9f9f9;
-      color: var(--dark);
-      line-height: 1.6;
-    }
-    .container {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 2rem;
-    }
-    header {
-      text-align: center;
-      margin-bottom: 2rem;
-    }
-    h1 {
-      font-size: 2.5rem;
-      margin-bottom: 0.5rem;
-      background: linear-gradient(45deg, var(--primary), var(--secondary));
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-    }
-    .subtitle {
-      color: #666;
-      font-size: 1.1rem;
-    }
-    .tool-card {
-      background: white;
-      border-radius: 10px;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-      padding: 2rem;
-      margin-bottom: 2rem;
-    }
-    .input-group {
-      margin-bottom: 1.5rem;
-    }
-    label {
-      display: block;
-      margin-bottom: 0.5rem;
-      font-weight: 600;
-    }
-    input[type="text"] {
-      width: 100%;
-      padding: 12px;
-      border: 2px solid #ddd;
-      border-radius: 5px;
-      font-size: 1rem;
-      transition: border 0.3s;
-    }
-    input[type="text"]:focus {
-      border-color: var(--primary);
-      outline: none;
-    }
-    .strength-meter {
-      height: 10px;
-      background: #eee;
-      border-radius: 5px;
-      margin: 10px 0;
-      overflow: hidden;
-    }
-    .strength-bar {
-      height: 100%;
-      width: 0%;
-      transition: width 0.3s, background 0.3s;
-    }
-    .btn {
-      background: var(--primary);
-      color: white;
-      border: none;
-      padding: 12px 20px;
-      border-radius: 5px;
-      cursor: pointer;
-      font-size: 1rem;
-      font-weight: 600;
-      transition: background 0.3s;
-    }
-    .btn:hover {
-      background: var(--secondary);
-    }
-    .result {
-      margin-top: 1rem;
-      font-weight: 600;
-    }
-    .features {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1rem;
-      margin-top: 2rem;
-    }
-    .feature {
-      background: white;
-      padding: 1.5rem;
-      border-radius: 10px;
-      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
-    }
-    .feature i {
-      font-size: 2rem;
-      color: var(--primary);
-      margin-bottom: 1rem;
-    }
-    footer {
-      text-align: center;
-      margin-top: 3rem;
-      color: #666;
-    }
-    @media (max-width: 600px) {
-      h1 {
-        font-size: 2rem;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="container">
@@ -207,6 +81,37 @@
       </div>
     </div>
 
+    <section id="faq">
+      <h2>Frequently Asked Questions</h2>
+  
+      <div class="faq-item">
+          <button class="faq-question">How do I know if my password is secure? <span class="arrow">▼</span></button>
+          <div class="faq-answer">
+              <p>A secure password is at least 12 characters long and includes a mix of uppercase letters, lowercase letters, numbers, and symbols. Use our <strong>Password Strength Checker</strong> to test yours instantly.</p>
+          </div>
+      </div>
+  
+      <div class="faq-item">
+          <button class="faq-question">What makes a strong password? <span class="arrow">▼</span></button>
+          <div class="faq-answer">
+              <p>A strong password should be unique, not used on multiple sites, and should not include easily guessed words like "password123" or "admin". Always mix different character types.</p>
+          </div>
+      </div>
+  
+      <div class="faq-item">
+          <button class="faq-question">How can I create a secure password? <span class="arrow">▼</span></button>
+          <div class="faq-answer">
+              <p>You can create a secure password by using a password manager or a random password generator. Avoid personal information like birthdays or names.</p>
+          </div>
+      </div>
+  
+      <div class="faq-item">
+          <button class="faq-question">Should I use the same password everywhere? <span class="arrow">▼</span></button>
+          <div class="faq-answer">
+              <p>No, using the same password for multiple accounts is risky. If one account is hacked, all your accounts could be compromised. Always use different passwords for different sites.</p>
+          </div>
+      </div>
+    </section>
     <footer>
       <p>© 2025 Password Strength Checker | Open-source tool for better security.</p>
     </footer>
@@ -283,6 +188,59 @@
       const password = generatedPassword.querySelector("div").textContent.trim();
       navigator.clipboard.writeText(password);
       alert("Password copied to clipboard!");
+    }
+  </script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const faqQuestions = document.querySelectorAll(".faq-question");
+    
+        faqQuestions.forEach((button) => {
+            button.addEventListener("click", function() {
+                const faqItem = this.parentElement;
+                faqItem.classList.toggle("active");
+            });
+        });
+    });
+    </script>
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How do I know if my password is secure?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A secure password is at least 12 characters long and includes a mix of uppercase letters, lowercase letters, numbers, and symbols. Use our Password Strength Checker to test yours instantly."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What makes a strong password?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A strong password should be unique, not used on multiple sites, and should not include easily guessed words like 'password123' or 'admin'. Always mix different character types."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How can I create a secure password?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "You can create a secure password by using a password manager or a random password generator. Avoid personal information like birthdays or names."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Should I use the same password everywhere?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No, using the same password for multiple accounts is risky. If one account is hacked, all your accounts could be compromised. Always use different passwords for different sites."
+          }
+        }
+      ]
     }
   </script>
 </body>
